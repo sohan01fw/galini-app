@@ -1,3 +1,9 @@
+import { CreateGuardrails } from "@/components/dashboard/guardrails/create";
+
 export default function page() {
-  return <div>create a guardrails here hehe!</div>;
+  return (
+    <div>
+      <CreateGuardrails />
+    </div>
+  );
 }

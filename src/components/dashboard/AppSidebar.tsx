@@ -1,12 +1,4 @@
-import {
-  Calendar,
-  Home,
-  Inbox,
-  Monitor,
-  Search,
-  Settings,
-  TestTube,
-} from "lucide-react";
+import { Home, Inbox, Monitor, Search, TestTube } from "lucide-react";
 
 import {
   Sidebar,
@@ -18,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import Link from "next/link";
 
 // Menu items.
 const items = [
@@ -53,7 +46,11 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <Link href="/" className="m-2">
+            <SidebarGroupLabel className="font-bold text-lg">
+              Galini
+            </SidebarGroupLabel>
+          </Link>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

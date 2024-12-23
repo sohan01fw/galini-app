@@ -2,6 +2,8 @@
 import Image from "next/image";
 import { GetStartedBtn } from "../sharedui/Buttonui";
 import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
+import { redirect } from "next/navigation";
 
 export function Navbar() {
   const [scroll, setScroll] = useState(false);
@@ -20,16 +22,17 @@ export function Navbar() {
     "https://static.wixstatic.com/media/632794_3ab38eb69bed4b2fbb2b136406873599~mv2.png/v1/fill/w_59,h_59,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Galini%20Logo%20Black.png";
   return (
     <nav
-      className={`z-20 fixed bg-white shadow-md top-0 w-full flex justify-between transition-shadow duration-700 ${scroll ? "shadow-lg" : ""}`}
+      className={`z-20 fixed bg-white shadow-md p-1 top-0 w-full flex justify-between transition-shadow duration-700 ${scroll ? "shadow-sm" : "shadow-lg"}`}
     >
       <div className="m-2 flex flex-row gap-2 ">
-        <div className=" min-w-10 md:min-w-14">
+        <div className="min-w-10 md:min-w-14 ">
           <Image
             src={url}
             width={60}
             height={70}
             alt="galini_logo"
-            className="w-10 md:w-14"
+            className="w-10 md:w-14 "
+            loading="lazy"
           />
         </div>
         <div>
@@ -43,7 +46,15 @@ export function Navbar() {
         </div>
 
         <div>
-          <GetStartedBtn />
+          <Button
+            className=" rounded-md  m-1 bg-purple-800 font-semibold hover:bg-purple-600 "
+            onClick={() => {
+              redirect("/dashboard");
+            }}
+            size={"sm"}
+          >
+            Get Started
+          </Button>
         </div>
       </div>
     </nav>

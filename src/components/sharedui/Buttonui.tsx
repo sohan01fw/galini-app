@@ -3,15 +3,16 @@
 import { redirect } from "next/navigation";
 import { Button } from "../ui/button";
 
-export function GetStartedBtn() {
+export function GetStartedBtn({ name }: { name: string }) {
   return (
     <Button
-      className=" rounded-2xl m-1 bg-purple-700 font-semibold hover:bg-purple-600 "
+      className="rounded-lg  m-1 bg-purple-800 font-semibold hover:bg-purple-600 "
       onClick={() => {
         redirect("/dashboard");
       }}
+      size={"lg"}
     >
-      Get Started
+      {name}
     </Button>
   );
 }

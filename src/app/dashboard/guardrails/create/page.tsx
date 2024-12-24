@@ -1,4 +1,4 @@
-import { CreateGuardrails } from "@/components/dashboard/guardrails/create";
+import { CreateGuardrails } from "@/src/components/dashboard/guardrails/create";
 
 export default function page() {
   return (

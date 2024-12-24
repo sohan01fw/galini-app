@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
-import { GetStartedBtn } from "../sharedui/Buttonui";
 import { useEffect, useState } from "react";
-import { Button } from "../ui/button";
-import { redirect } from "next/navigation";
+import { HomeBtn } from "../sharedui/Buttonui";
 
 export function Navbar() {
   const [scroll, setScroll] = useState(false);
@@ -44,18 +42,8 @@ export function Navbar() {
         <div className="m-1 mt-3">
           <h3 className=" text-md">pricing</h3>
         </div>
-
-        <div>
-          <Button
-            className=" rounded-md  m-1 bg-purple-800 font-semibold hover:bg-purple-600 "
-            onClick={() => {
-              redirect("/dashboard");
-            }}
-            size={"sm"}
-          >
-            Get Started
-          </Button>
-        </div>
+        <HomeBtn sizes="sm" />
+        <div></div>
       </div>
     </nav>
   );

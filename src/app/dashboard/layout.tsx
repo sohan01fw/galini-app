@@ -1,7 +1,7 @@
-import { AppSidebar } from "@/components/dashboard/AppSidebar";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/src/components/dashboard/AppSidebar";
+import { SidebarProvider, SidebarTrigger } from "@/src/components/ui/sidebar";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

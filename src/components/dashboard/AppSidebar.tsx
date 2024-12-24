@@ -1,4 +1,4 @@
-import { Home, Inbox, Monitor, Search, TestTube } from "lucide-react";
+import { Home, Inbox, TestTube } from "lucide-react";
 
 import {
   Sidebar,
@@ -28,16 +28,6 @@ const items = [
     title: "Test Guardrails",
     url: "/dashboard/guardrails/test",
     icon: TestTube,
-  },
-  {
-    title: "Evaluate Guardrails",
-    url: "/dashboard/guardrails/evaluate",
-    icon: Search,
-  },
-  {
-    title: "Moniter",
-    url: "/dashboard/guardrails/moniter",
-    icon: Monitor,
   },
 ];
 

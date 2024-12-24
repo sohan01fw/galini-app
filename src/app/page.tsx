@@ -1,8 +1,8 @@
 import { Navbar } from "@/components/index/Navbar";
-import { GetStartedBtn } from "@/components/sharedui/Buttonui";
 import Image from "next/image";
+import { HomeBtn } from "../components/sharedui/Buttonui";
 
-export default function page() {
+export default async function page() {
   return (
     <div>
       <header>
@@ -20,7 +20,7 @@ export default function page() {
             </div>
             <div className="flex gap-5 items-center flex-col sm:flex-row mt-5 justify-center ">
               <div>
-                <GetStartedBtn name="Get Started" />
+                <HomeBtn sizes="lg" />
               </div>
             </div>
           </div>

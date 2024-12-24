@@ -1,18 +1,26 @@
 "use client";
 
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import { useUser } from "@clerk/nextjs";
 
-export function GetStartedBtn({ name }: { name: string }) {
+export function HomeBtn({ sizes }: { sizes: string | any }) {
+  const { isSignedIn } = useUser();
+  const router = useRouter();
+  const handleLogin = () => {
+    if (isSignedIn) {
+      router.push("/dashboard");
+    } else {
+      router.push("/auth/login");
+    }
+  };
   return (
     <Button
       className="rounded-lg  m-1 bg-purple-800 font-semibold hover:bg-purple-600 "
-      onClick={() => {
-        redirect("/dashboard");
-      }}
-      size={"lg"}
+      onClick={handleLogin}
+      size={sizes}
     >
-      {name}
+      {isSignedIn ? "Dashboard" : "Get Started"}
     </Button>
   );
 }

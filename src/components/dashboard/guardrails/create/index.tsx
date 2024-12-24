@@ -17,18 +17,31 @@ import {
   PriorityTypeArr,
   RulesTypeArr,
 } from "@/src/lib/data";
-export function CreateGuardrails() {
+import { CreateGuardrailsRule } from "@/src/lib/Action/Guardrails.action";
+import { GuardrailsType, userD } from "@/types/global";
+export function CreateGuardrails({ userData }: { userData: userD }) {
   const form = useForm<z.infer<typeof CreateGuardrailsSchema>>({
     resolver: zodResolver(CreateGuardrailsSchema),
     defaultValues: {
       name: "",
       rules: "",
-      rulefile: undefined,
+      pdfImage: undefined,
+      compliancetype: undefined,
+      prioritylevel: "LOW",
+      rulestype: "GENERALCONSTRAINTS",
     },
   });
 
   async function onSubmit(values: z.infer<typeof CreateGuardrailsSchema>) {
-    console.log(values);
+    const createGuardrails = await CreateGuardrailsRule(
+      values as GuardrailsType,
+      userData.email as string,
+      userData.userId as string,
+    );
+    if ("error" in createGuardrails) {
+      console.log(createGuardrails.message);
+    }
+    console.log(createGuardrails.message);
   }
   return (
     <FormProvider {...form}>
@@ -45,7 +58,7 @@ export function CreateGuardrails() {
           name="rules"
           placeholder="Describe the rules..."
         />
-        <FileInputForm form={form} label="Upload Resume" name="rulefile" />
+        <FileInputForm form={form} label="Upload Rule file" name="pdfImage" />
         <SelectFormInput
           options={ComplianceTypeArr}
           placeholder="Select your compliance type"
